@@ -3,9 +3,7 @@
   margin: 20px auto;
   padding: 10px;
 }
-.notifications-container {
-  flex: 3;
-}
+
 
 .notifications-title {
   font-size: 26px;
