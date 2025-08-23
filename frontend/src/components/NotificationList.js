@@ -15,7 +15,7 @@ function NotificationList({ userId }) {
       loadNotifications();
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [loadNotifications]);
 
   const handleRead = (id) => {
     markAsRead(id).then(() => {
