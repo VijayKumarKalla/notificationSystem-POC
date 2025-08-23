@@ -25,7 +25,7 @@ function NotificationForm({ userId }) {
     
 
     if (!targetUserId || Number(targetUserId) === userId) {
-      setStatus("❌ Invalid target user (cannot be empty or self).");
+      setStatus(" Invalid target user (cannot be empty or self).");
       return;
     }
 
@@ -46,14 +46,14 @@ function NotificationForm({ userId }) {
       });
 
       setStatus(
-        `✅ Notification sent to ${
+        ` Notification sent to ${
           users[targetUserId] || `User ${targetUserId}`
         }`
       );
       setTargetUserId("");
       setType("like");
     } catch (error) {
-      setStatus("❌ Failed to send notification.");
+      setStatus(" Failed to send notification.");
     }
   };
 
@@ -85,9 +85,9 @@ function NotificationForm({ userId }) {
           <div className="form-group">
             <label>Action</label>
             <select value={type} onChange={(e) => setType(e.target.value)}>
-              <option value="like">👍 Like</option>
-              <option value="comment">💬 Comment</option>
-              <option value="follow">👤 Follow</option>
+              <option value="like"> Like</option>
+              <option value="comment"> Comment</option>
+              <option value="follow">Follow</option>
             </select>
           </div>
 
@@ -100,9 +100,9 @@ function NotificationForm({ userId }) {
       {status && <p className="status">{status}</p>}
 
       <p className="disclaimer">
-        👉 To view notifications of targeted id user, visit:
+         To view notifications of targeted id user, visit:
         <br />
-        <code>https://insyd-notifcation.netlify.app/?userId={targetUserId}</code>
+        <a>https://insyd-notifcation.netlify.app/?userId={targetUserId}</a>
       </p>
     </div>
   );
