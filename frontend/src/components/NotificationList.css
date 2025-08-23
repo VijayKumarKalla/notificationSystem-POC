@@ -3,6 +3,9 @@
   margin: 20px auto;
   padding: 10px;
 }
+.notifications-container {
+  flex: 3;
+}
 
 .notifications-title {
   font-size: 26px;
@@ -16,6 +19,7 @@
   padding: 0;
   margin: 0;
 }
+
 
 .notification-item {
   display: flex;
@@ -48,7 +52,7 @@
 }
 
 .mark-read-btn {
-  background-color: #007bff;
+  background-color: #00ff40;
   color: white;
   border: none;
   padding: 6px 12px;

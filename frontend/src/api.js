@@ -7,3 +7,13 @@ export const fetchNotifications = (userId) =>
 
 export const markAsRead = (id) =>
   axios.post(`${API_URL}/read/${id}`).then((res) => res.data);
+
+
+export async function createNotification(data) {
+  const res = await fetch("https://insyd-backend-m2lb.onrender.com/notifications", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  return res.json();
+}
