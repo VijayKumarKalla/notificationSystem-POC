@@ -102,7 +102,7 @@ function NotificationForm({ userId }) {
       <p className="disclaimer">
          To view notifications of targeted id user, visit:
         <br />
-        <p>https://insyd-notifcation.netlify.app/?userId={targetUserId}</p>
+        <p>https://insyd-notification-poc.netlify.app/?userId={targetUserId}</p>
       </p>
     </div>
   );
