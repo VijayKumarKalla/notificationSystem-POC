@@ -1,11 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { fetchNotifications, markAsRead } from "../api";
+import "./NotificationList.css";
 
 function NotificationList({ userId }) {
   const [notifications, setNotifications] = useState([]);
 
-  useEffect(() => {
+  const loadNotifications = () => {
     fetchNotifications(userId).then(setNotifications);
+  };
+
+  useEffect(() => {
+    loadNotifications();
+    const interval = setInterval(() => {
+      loadNotifications();
+    }, 5000);
+    return () => clearInterval(interval);
   }, [userId]);
 
   const handleRead = (id) => {
@@ -17,43 +26,31 @@ function NotificationList({ userId }) {
   };
 
   return (
-    <div style={{ maxWidth: "500px", marginTop: "20px" }}>
-      <h2 style={{ fontSize: "24px", marginBottom: "15px" }}>Notifications</h2>
-      <ul style={{ listStyle: "none", padding: 0 }}>
-        {notifications.map((n) => (
-          <li
-            key={n.id}
-            style={{
-              backgroundColor: n.read ? "#fff" : "#f0f8ff",
-              fontWeight: n.read ? "normal" : "bold",
-              padding: "10px 15px",
-              marginBottom: "10px",
-              borderRadius: "8px",
-              boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            {n.message}{" "}
-            {!n.read && (
-              <button
-                onClick={() => handleRead(n.id)}
-                style={{
-                  backgroundColor: "#007bff",
-                  color: "#fff",
-                  border: "none",
-                  padding: "5px 10px",
-                  borderRadius: "5px",
-                  cursor: "pointer",
-                }}
-              >
-                Mark as read
-              </button>
-            )}
-          </li>
-        ))}
-      </ul>
+    <div className="notifications-container">
+      <h2 className="notifications-title">Notifications</h2>
+
+      {notifications.length === 0 ? (
+        <p className="no-notifications">😊 No notifications yet!</p>
+      ) : (
+        <ul className="notifications-list">
+          {notifications.map((n) => (
+            <li
+              key={n.id}
+              className={`notification-item ${n.read ? "read" : "unread"}`}
+            >
+              <span className="notification-message">{n.message}</span>
+              {!n.read && (
+                <button
+                  onClick={() => handleRead(n.id)}
+                  className="mark-read-btn"
+                >
+                  Mark as read
+                </button>
+              )}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
