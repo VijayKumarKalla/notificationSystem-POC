@@ -5,17 +5,15 @@ import "./NotificationList.css";
 function NotificationList({ userId }) {
   const [notifications, setNotifications] = useState([]);
 
-  const loadNotifications = () => {
-    fetchNotifications(userId).then(setNotifications);
-  };
-
   useEffect(() => {
-    loadNotifications();
-    const interval = setInterval(() => {
-      loadNotifications();
-    }, 5000);
+    const loadNotifications = () => {
+      fetchNotifications(userId).then(setNotifications);
+    };
+
+    loadNotifications(); // initial fetch
+    const interval = setInterval(loadNotifications, 5000);
     return () => clearInterval(interval);
-  }, [loadNotifications]);
+  }, [userId]); // ✅ only depends on userId
 
   const handleRead = (id) => {
     markAsRead(id).then(() => {
