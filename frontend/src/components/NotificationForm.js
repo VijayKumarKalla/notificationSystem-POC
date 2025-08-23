@@ -103,6 +103,7 @@ function NotificationForm({ userId }) {
          To view notifications of targeted id user, visit:
         <br />
         <p>https://insyd-notification-poc.netlify.app/?userId={targetUserId}</p>
+        <p>Enter targeted User Id at the end of above url</p>
       </p>
     </div>
   );
