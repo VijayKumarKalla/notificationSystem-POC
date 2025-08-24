@@ -2,7 +2,7 @@
 
 This is a proof-of-concept notification system for **Insyd**, a next-generation social platform for the Architecture industry.  
 It demonstrates how users can send and view notifications such as follows, likes, and comments.
-
+System Design Document : [https://docs.google.com/document/d/1dtLuN4Afm-_KRn63oJPxUS3-xVKjiTpm/edit?usp=sharing&ouid=116812393779953888540&rtpof=true&sd=true]
 ---
 
 ## 🚀 Deployed Application
