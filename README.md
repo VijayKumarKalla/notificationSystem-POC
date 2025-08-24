@@ -7,9 +7,9 @@ It demonstrates how users can send and view notifications such as follows, likes
 
 ## 🚀 Deployed Application
 
-Frontend: [https://insyd-notifcation.netlify.app](https://insyd-notifcation.netlify.app)  
+Frontend: [https://insyd-notification-poc.netlify.app/](https://insyd-notification-poc.netlify.app/)  
 Backend: `<https://insyd-backend-m2lb.onrender.com/notifications/{userId}>`
-
+screenrecording gdrive link : [https://drive.google.com/file/d/1cKfFTYEZEuOl51bw2aoln1gDr7Egkk4-/view?usp=sharing]
 
 
 ---
@@ -19,13 +19,13 @@ Backend: `<https://insyd-backend-m2lb.onrender.com/notifications/{userId}>`
 ### 1. View Notifications of a User
 Each user can view their notifications by visiting:
 
-https://insyd-notifcation.netlify.app/?userId={userId}
+https://insyd-notification-poc.netlify.app/?userId={userId}
 
 
 For example:
-- **Alice (User 1):** https://insyd-notifcation.netlify.app/?userId=1  
-- **Bob (User 2):** https://insyd-notifcation.netlify.app/?userId=2  
-- **Charlie (User 3):** https://insyd-notifcation.netlify.app/?userId=3  
+- **Alice (User 1):** https://insyd-notification-poc.netlify.app/?userId=1  
+- **Bob (User 2):** https://insyd-notification-poc.netlify.app/?userId=2  
+- **Charlie (User 3):**  https://insyd-notification-poc.netlify.app/?userId=3  
 
 👉 You can also try **any other `userId` (e.g., 4, 5, 10, etc.)** — the app won’t throw an error because of the database seeding logic.  
 If the user doesn’t exist, the app will still work but simply show no notifications.
@@ -56,9 +56,9 @@ If you don’t provide a `userId`, it defaults to **Alice (1)**.
 ---
 
 ## 🧪 Example Test Flow
-1. Open [https://insyd-notifcation.netlify.app/?userId=1](https://insyd-notifcation.netlify.app/?userId=1) → view Alice’s notifications.  
+1. Open [https://insyd-notification-poc.netlify.app/?userId=1](https://insyd-notification-poc.netlify.app/?userId=1) → view Alice’s notifications.  
 2. Send a **Follow** notification from Alice to Bob.  
-3. Open [https://insyd-notifcation.netlify.app/?userId=2](https://insyd-notifcation.netlify.app/?userId=2) → see Bob’s notification.  
+3. Open [https://insyd-notification-poc.netlify.app/?userId=2](https://insyd-notification-poc.netlify.app/?userId=2) → see Bob’s notification.  
 4. Try with any other `userId` (e.g., `?userId=10`) → works fine, will just show an empty notification list until you send something to that user.
 
 ---
